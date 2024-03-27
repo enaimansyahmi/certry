@@ -1,8 +1,11 @@
 <!doctype html>
 <head>
 	<title>JUPEM JOHOR - MASJID DAENG ABDUL RAHMAN</title>
-	<link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
-	<script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+	<!-- <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
+	<script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script> -->
+
+	<link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
+	<script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>	
 	<script src="dist/threebox.js" type="text/javascript"></script>
 	<link href="dist/threebox.css" rel="stylesheet" />
 	<script src="config.js"></script>
@@ -30,11 +33,11 @@
 
 		var map = new mapboxgl.Map({
 			container: 'map',
-			style: 'mapbox://styles/mapbox/satellite-streets-v12',
+			style: 'mapbox://styles/mapbox/light-v11',
 			center: origin,
 			zoom: 20,
 			pitch: 60,
-			bearing: 80,
+			bearing: 330,
 			antialias: true
 		});
 
@@ -95,6 +98,56 @@
 
 		});
 
+		// mapbox 3d layer start
+	// 	map.on('style.load', () => {
+    //     // Insert the layer beneath any symbol layer.
+    //     const layers = map.getStyle().layers;
+    //     const labelLayerId = layers.find(
+    //         (layer) => layer.type === 'symbol' && layer.layout['text-field']
+    //     ).id;
+
+    //     // The 'building' layer in the Mapbox Streets
+    //     // vector tileset contains building height data
+    //     // from OpenStreetMap.
+    //     map.addLayer(
+    //         {
+    //             'id': 'add-3d-buildings',
+    //             'source': 'composite',
+    //             'source-layer': 'building',
+    //             'filter': ['==', 'extrude', 'true'],
+    //             'type': 'fill-extrusion',
+    //             'minzoom': 15,
+    //             'paint': {
+    //                 'fill-extrusion-color': '#aaa',
+
+    //                 // Use an 'interpolate' expression to
+    //                 // add a smooth transition effect to
+    //                 // the buildings as the user zooms in.
+    //                 'fill-extrusion-height': [
+    //                     'interpolate',
+    //                     ['linear'],
+    //                     ['zoom'],
+    //                     15,
+    //                     0,
+    //                     15.05,
+    //                     ['get', 'height']
+    //                 ],
+    //                 'fill-extrusion-base': [
+    //                     'interpolate',
+    //                     ['linear'],
+    //                     ['zoom'],
+    //                     15,
+    //                     0,
+    //                     15.05,
+    //                     ['get', 'min_height']
+    //                 ],
+    //                 'fill-extrusion-opacity': 0.6
+    //             }
+    //         },
+    //         labelLayerId
+    //     );
+    // });
+	// mapbox 3d layer end
 
 	</script>
 </body>
